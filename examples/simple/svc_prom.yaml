@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: prometheus-test
+spec:
+  clusterIP: None
+  ports:
+  - name: web
+    port: 9090
+    protocol: TCP
+    targetPort: 9090
+  - name: alert
+    port: 9093
+    protocol: TCP
+    targetPort: 9093
+  - name: event
+    port: 9100
+    protocol: TCP
+    targetPort: 9100
+  - name: hierarchy
+    port: 9101
+    protocol: TCP
+    targetPort: 9101
+  selector:
+    name: prometheus-test
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name: prometheus-tester
+    namespace: kube-system
+spec:
+  containers:
+    - name: prometheus-tester
+      image: cargo.caicloudprivatetest.com/caicloud/prometheus-tester
+      imagePullPolicy: Always
+      env:
+      - name: Num
+        value: "1"
